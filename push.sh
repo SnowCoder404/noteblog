@@ -1,5 +1,4 @@
 read -p "Enter a commit Text: " commite
-echo $commite
 if [ -d "./.git" ]; then 
 	git add .
 	git commit -m $commite
