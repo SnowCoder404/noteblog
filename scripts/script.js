@@ -31,7 +31,7 @@ function renderNotes() {
     let localeArchiv = getFromLocalData('Archiv');
     contentRef.innerHTML = '';
     if (!isNull(localeArchiv)) {
-        archivNotes = localeArchiv;
+        allNotes['archivNotes'] = localeArchiv;
         renderArchivNotes();
     }
     if (isNull(localTask)) {
@@ -41,14 +41,14 @@ function renderNotes() {
        saveNotes('Aufgabe', notes);   
     }else {
         if (!isNull(localTrashTask)) {
-            trashNotes = localTrashTask;
+            allNotes['trashNotes'] = localTrashTask;
             renderTrashNotes();
         }
         if (!isNull(localTitle)) {
             title = localTitle;
         }
         if (localTask.length > 0 ) {
-            notes = localTask;
+            allNotes['notes'] = localTask;
             for (let index = 0; index < notes.length; index++) {
                 contentRef.innerHTML += getNoteTemplate(index);
             }
@@ -68,7 +68,7 @@ function isNull(value) {
 function renderTrashNotes() {
     let trashContent = document.getElementById('trash_content'); 
     trashContent.innerHTML = '';
-    if (trashNotes.length > 0) {
+    if (allNotes['trashNotes'].length > 0) {
         document.getElementById('trash').classList.add('d_flex_c');
         for (let index = 0; index < trashNotes.length; index++) {
             trashContent.innerHTML += getTrashTemplate(index);
@@ -176,4 +176,19 @@ function backToNotes(index) {
     if (archivNotes.length == 0) {
         document.getElementById('archiv').classList.remove('d_flex_c')
     }
+}
+
+function moveNotes(spliceNotes, index, pushNotes) {
+    let spliceNote = spliceNotes.splice[index, 1];
+    pushNotes.push(spliceNote);
+    
+}
+
+function saveAndRenderNotes() {
+    saveNotes('Archiv', allNotes['archivNotes']);
+    saveNotes('Aufgabe', allNotes['notes']);
+    saveNotes('Trash', allNotes['trashNotes']);
+    renderNotes();
+    renderArchivNotes();
+    renderTrashNotes();
 }
