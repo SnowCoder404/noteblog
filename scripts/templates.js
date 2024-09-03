@@ -1,10 +1,10 @@
 function getNoteTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
                 <h2 class='bk_o d_flex_c_c'>
-                    ${title[index]}<br>
+                    ${allNotes.title[index]}<br>
                 </h2>
                 <h2 class='bk_o d_flex_c_c'>    
-                    ${notes[index]}
+                    ${allNotes.notes[index]}
                 </h2>
                 <div style='width: 100%; background-color: orange; display: flex; justify-content: space-between;'>
                     <button onclick="pushToArchiv(${index})" class='bk_o br_24 h_55px'>A</button>
@@ -16,10 +16,10 @@ function getNoteTemplate(index) {
 function getTrashTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
                 <h2 class='bk_o d_flex_c_c'>
-                    ${title[index]}<br>
+                    ${allNotes.title[index]}<br>
                 </h2>
                 <h2 class='bk_o d_flex_c_c'>    
-                    ${trashNotes[index]}
+                    ${allNotes.trashNotes[index]}
                 </h2>
                 <div style='width: 100%; background-color: orange; display: flex; justify-content: space-between;'>
                     <button onclick="trashToArchiv(${index})" class='bk_o br_24 h_55px'>A</button>
@@ -31,10 +31,10 @@ function getTrashTemplate(index) {
 function getArchivTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
     <h2 class='bk_o d_flex_c_c'>
-        ${title[index]}<br>
+        ${allNotes.title[index]}<br>
     </h2>
     <h2 class='bk_o d_flex_c_c'>    
-        ${archivNotes[index]}
+        ${allNotes.archivNotes[index]}
     </h2>
     <div style='width: 100%; background-color: orange; display: flex; justify-content: space-between;'>
         <button onclick="backToNotes(${index})" class='bk_o br_24 h_55px'>R</button>
