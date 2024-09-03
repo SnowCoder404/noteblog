@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizblog</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icon/notepad.png">
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/script.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/flexbox.css">
+</head>
+<body onload="renderNotes()">
+    <div id="mainDiv" class="d_flex">
+        <div>
+            <h1 class="d_flex_c bk_o br_24">Notitzblog</h1>
+    
+            <div id="content"></div>
+            
+
+            <div class="d_flex_c bk_o" style="margin-left: 12px; border-radius: 24px; margin-bottom: 12px;">
+                <span class="bk_o">Title :</span> 
+                <input id="inputTitle" type="text" class="br_24">
+            </div>
+            
+            <div class="d_flex_c bk_o" style="margin-left: 12px; border-radius: 24px;">
+                <span class="bk_o">Task :</span>
+                <input id="inputNote" type="text" class="br_24">
+            </div>      
+            
+            <div class="d_flex_c">
+                <button onclick="addNote()" class="d_flex_c br_24" style="margin: 12px 36px;">Notitz speichern</button>  
+                <button onclick="toggleTrashNote()" class="d_flex_c_c br_24" style="margin: 12px 36px;">Papierkorb</button>
+                <button onclick="toggleArchivNote()" class="d_flex_c_c br_24" style="margin: 12px 36px;">Archiv</button>
+            </div>
+        </div>
+
+        
+        <div id="archivDiv" class="d_flex_a_c " style="flex-direction: column;">
+            <h2 class="d_none" id="archiv">Archiv</h2> 
+            <div id="archiv_content"></div>
+        </div>
+
+        <div id="trashDiv" class="d_flex_a_c ">
+            <h2 class="d_none" id="trash">Papierkorb</h2> 
+            <div id="trash_content"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
