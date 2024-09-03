@@ -70,7 +70,7 @@ function renderTrashNotes() {
     trashContent.innerHTML = '';
     if (allNotes['trashNotes'].length > 0) {
         document.getElementById('trash').classList.add('d_flex_c');
-        for (let index = 0; index < trashNotes.length; index++) {
+        for (let index = 0; index < allNotes['trashNotes'].length; index++) {
             trashContent.innerHTML += getTrashTemplate(index);
         }
     } 
@@ -79,9 +79,9 @@ function renderTrashNotes() {
 function renderArchivNotes() {
     let archivContent = document.getElementById('archiv_content');
     archivContent.innerHTML = '';
-    if (archivNotes.length > 0) {
+    if (allNotes['archivNotes'].length > 0) {
         document.getElementById('archiv').classList.add('d_flex_c');
-        for (let index = 0; index < archivNotes.length; index++) {
+        for (let index = 0; index < allNotes['archivNotes'].length; index++) {
             archivContent.innerHTML += getArchivTemplate(index);
         }
     }
