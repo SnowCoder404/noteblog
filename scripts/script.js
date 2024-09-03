@@ -1,11 +1,14 @@
-let notes = ['Rasen mähen', 'Essen machen']
-let title = ['Task', 'Task']
-let archivNotes = [];
-let trashNotes = [];
-
+let allNotes = {
+    'notes': ['Rasen mähen', 'Essen machen'],
+    'notesTitles': ['Task', 'Task'],
+    'archivNotes': [],
+    'archivNotesTitles': [],
+    'trashNotes': [],
+    'trashNotesTitles': [], 
+}
 
 function toggleTrashNote() {
-    if (!trashNotes.length < 1) {
+    if (!allNotes['trashNotes'].length < 1) {
         document.getElementById('trashDiv').classList.toggle('d_none');
     }else {
         document.getElementById('trash').classList.add('d_none');
@@ -13,7 +16,7 @@ function toggleTrashNote() {
 }
 
 function toggleArchivNote() {
-    if (!archivNotes.length < 1) {
+    if (!allNotes['archivNotes'].length < 1) {
         document.getElementById('archivDiv').classList.toggle('d_none');
     }else {
         document.getElementById('archiv').classList.add('d_none');
