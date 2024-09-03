@@ -1,9 +1,10 @@
-read -p "Enter a commit Text: " commite
 if [ -d "./.git" ]; then 
+	read -p "Enter a commit Text: " commite
 	git add .
 	git commit -m $commite
 	git push
 else
+	read -p "Enter a commit Text: " commite
 	git init
 	git add .
 	git commit -m $commit
