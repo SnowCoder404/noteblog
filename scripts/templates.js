@@ -1,7 +1,7 @@
 function getNoteTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
                 <h2 class='bk_o d_flex_c_c'>
-                    ${allNotes.title[index]}<br>
+                    ${allNotes.notesTitles[index]}<br>
                 </h2>
                 <h2 class='bk_o d_flex_c_c'>    
                     ${allNotes.notes[index]}
@@ -16,7 +16,7 @@ function getNoteTemplate(index) {
 function getTrashTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
                 <h2 class='bk_o d_flex_c_c'>
-                    ${allNotes.title[index]}<br>
+                    ${allNotes.notesTitles[index]}<br>
                 </h2>
                 <h2 class='bk_o d_flex_c_c'>    
                     ${allNotes.trashNotes[index]}
@@ -31,7 +31,7 @@ function getTrashTemplate(index) {
 function getArchivTemplate(index) {
     return `<div id='hDiv' class='d_flex_a_c'>            
     <h2 class='bk_o d_flex_c_c'>
-        ${allNotes.title[index]}<br>
+        ${allNotes.notesTitles[index]}<br>
     </h2>
     <h2 class='bk_o d_flex_c_c'>    
         ${allNotes.archivNotes[index]}
