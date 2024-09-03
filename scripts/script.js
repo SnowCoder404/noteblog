@@ -109,15 +109,16 @@ function getFromLocalData (localTask) {
 function moveNotes(spliceNotes, index, pushNotes) {
     let spliceNote = spliceNotes.splice[index, 1];
     pushNotes.push(spliceNote);
+    console.table(spliceNote);
     saveAndRenderNotes();
+}
+
+function saveAndRenderNotes() {
     if (allNotes['trashNotes'].length == 0) {
         document.getElementById('trash').classList.remove('d_flex_c')
     }else if (allNotes['archivNotes'].length == 0) {
         document.getElementById('archiv').classList.remove('d_flex_c')
     }
-}
-
-function saveAndRenderNotes() {
     saveNotes('Archiv', allNotes['archivNotes']);
     saveNotes('Aufgabe', allNotes['notes']);
     saveNotes('Trash', allNotes['trashNotes']);
