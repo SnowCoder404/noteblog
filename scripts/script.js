@@ -49,7 +49,7 @@ function renderNotes() {
         }
         if (localTask.length > 0 ) {
             allNotes['notes'] = localTask;
-            for (let index = 0; index < notes.length; index++) {
+            for (let index = 0; index < allNotes['notes'].length; index++) {
                 contentRef.innerHTML += getNoteTemplate(index);
             }
         }
