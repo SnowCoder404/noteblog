@@ -110,16 +110,21 @@ function moveNotes(notesID, index, pushNotesID) {
     let notesSplice = notesID.splice(notesID[index], 1);
     notesSplice = notesSplice[0];
     pushNotesID.push(notesSplice);
+    checkTrashAndArchiv();
     saveAndRenderNotes();
 }
 
-function saveAndRenderNotes() {
+function checkTrashAndArchiv() {
     if (allNotes["trashNotes"].length == 0) {
         document.getElementById('trash').classList.remove('d_flex_c')
     }
     if (allNotes['archivNotes'].length == 0) {
         document.getElementById('archiv').classList.remove('d_flex_c')
     }
+}
+
+function saveAndRenderNotes() {
+
     saveNotes('Archiv', allNotes['archivNotes']);
     saveNotes('Aufgabe', allNotes['notes']);
     saveNotes('Trash', allNotes['trashNotes']);
