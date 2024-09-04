@@ -106,10 +106,10 @@ function getFromLocalData (localTask) {
     return JSON.parse(task);
 }
 
-function moveNotes(spliceNotes, index, pushNotes) {
-    let spliceNote = spliceNotes.splice[index, 1];
-    pushNotes.push(spliceNote);
-    console.table(spliceNote);
+function moveNotes(notesID, index, pushNotesID) {
+    let notesSplice = notesID.splice(notesID[index], 1);
+    notesSplice = notesSplice[0];
+    pushNotesID.push(notesSplice);
     saveAndRenderNotes();
 }
 
