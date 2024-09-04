@@ -71,6 +71,16 @@ function renderArchivNotes() {
     }
 }
 
+function renderAllNotes(notes) {
+    let notesContent = document.getElementById(notes);
+    notesContent.innerHTML = '';
+    if (allNotes[notes].length > 0) {
+        for (let index = 0; index < allNotes[notes].length; index++) {
+            notesContent.innerHTML = getArchivTemplate[index];
+        }
+    }
+}
+
 function addNote () {
     let noteInputRef = document.getElementById('inputNote');
     let titleInputRef = document.getElementById("inputTitle");
@@ -79,6 +89,7 @@ function addNote () {
     if (noteInput != '' && titleInput != '') {
         allNotes['notes'].push(noteInput);
         allNotes['notesTitles'].push(titleInput);
+        saveAndRenderNotes();
         saveNotes('Aufgabe', allNotes['notes']);
         saveNotes('Title', allNotes['notesTitles']);
         renderNotes();
@@ -102,7 +113,7 @@ function saveNotes (task, note) {
 }
 
 function getFromLocalData (localTask) {
-    let task = localStorage.getItem(localTask)
+    let task = localStorage.getItem(localTask);
     return JSON.parse(task);
 }
 
