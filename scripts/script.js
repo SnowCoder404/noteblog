@@ -16,7 +16,7 @@ function renderNotes() {
     contentRef.innerHTML = '';
     if (!isNull(localeArchiv)) {
         allNotes['archivNotes'] = localeArchiv;
-        renderArchivNotes();
+        renderAllNotes('archivNotes');
     }
     if (isNull(localTask)) {
         for (let index = 0; index < allNotes['notes'].length; index++) {
@@ -49,28 +49,6 @@ function isNull(value) {
     }
 }
 
-function renderTrashNotes() {
-    let trashContent = document.getElementById('trash_content'); 
-    trashContent.innerHTML = '';
-    if (allNotes['trashNotes'].length > 0) {
-        document.getElementById('trash').classList.add('d_flex_c');
-        for (let index = 0; index < allNotes['trashNotes'].length; index++) {
-            trashContent.innerHTML += getTrashTemplate(index);
-        }
-    } 
-}
- 
-function renderArchivNotes() {
-    let archivContent = document.getElementById('archiv_content');
-    archivContent.innerHTML = '';
-    if (allNotes['archivNotes'].length > 0) {
-        document.getElementById('archiv').classList.add('d_flex_c');
-        for (let index = 0; index < allNotes['archivNotes'].length; index++) {
-            archivContent.innerHTML += getArchivTemplate(index);
-        }
-    }
-}
-
 function renderAllNotes(notes) {
     let notesContent = document.getElementById(notes);
     notesContent.innerHTML = '';
@@ -92,7 +70,7 @@ function addNote () {
         saveAndRenderNotes();
         saveNotes('Aufgabe', allNotes['notes']);
         saveNotes('Title', allNotes['notesTitles']);
-        renderNotes();
+        renderAllNotes('notes');
         noteInputRef.value = "";
         titleInputRef.value = "";
     }
@@ -100,7 +78,7 @@ function addNote () {
 
 function deleteNote (index) {
     allNotes['trashNotes'].splice(index, 1);
-    renderTrashNotes();
+    renderAllNotes('trashNotes');
     saveNotes('Trash', allNotes['trashNotes']);    
     if (allNotes['trashNotes'].length == 0) {
         document.getElementById('trash').classList.remove('d_flex_c')
@@ -138,9 +116,9 @@ function saveAndRenderNotes() {
     saveNotes('Aufgabe', allNotes['notes']);
     saveNotes('Trash', allNotes['trashNotes']);
     saveNotes('Title', allNotes["notesTitles"]);
-    renderNotes();
-    renderArchivNotes();
-    renderTrashNotes();
+    renderAllNotes('notes');
+    renderAllNotes('archivNotes');
+    renderAllNotes('trashNotes');
 }
 
 function toggleTrashNote() {
