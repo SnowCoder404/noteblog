@@ -77,10 +77,10 @@ function addNote () {
     let noteInput = noteInputRef.value;
     let titleInput = titleInputRef.value;
     if (noteInput != '' && titleInput != '') {
-        notes.push(noteInput);
-        title.push(titleInput);
-        saveNotes('Aufgabe', notes);
-        saveNotes('Title', title);
+        allNotes['notes'].push(noteInput);
+        allNotes['notesTitles'].push(titleInput);
+        saveNotes('Aufgabe', allNotes['notes']);
+        saveNotes('Title', allNotes['notesTitles']);
         renderNotes();
         noteInputRef.value = "";
         titleInputRef.value = "";
@@ -114,9 +114,10 @@ function moveNotes(notesID, index, pushNotesID) {
 }
 
 function saveAndRenderNotes() {
-    if (allNotes['trashNotes'].length == 0) {
+    if (allNotes["trashNotes"].length == 0) {
         document.getElementById('trash').classList.remove('d_flex_c')
-    }else if (allNotes['archivNotes'].length == 0) {
+    }
+    if (allNotes['archivNotes'].length == 0) {
         document.getElementById('archiv').classList.remove('d_flex_c')
     }
     saveNotes('Archiv', allNotes['archivNotes']);
