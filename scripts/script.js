@@ -107,8 +107,7 @@ function getFromLocalData (localTask) {
 }
 
 function moveNotes(notesID, index, pushNotesID) {
-    let notesSplice = notesID.splice(notesID[index], 1);
-    notesSplice = notesSplice[0];
+    let notesSplice = notesID.splice(index, 1);
     pushNotesID.push(notesSplice);
     checkTrashAndArchiv();
     saveAndRenderNotes();
@@ -124,7 +123,6 @@ function checkTrashAndArchiv() {
 }
 
 function saveAndRenderNotes() {
-
     saveNotes('Archiv', allNotes['archivNotes']);
     saveNotes('Aufgabe', allNotes['notes']);
     saveNotes('Trash', allNotes['trashNotes']);
