@@ -107,11 +107,9 @@ function getFromLocalData (localTask) {
     return JSON.parse(task);
 }
 
-function moveNotes(notesID, index, pushNotesID,titleId, pushTitle) {
+function moveNotes(notesID, index, pushNotesID) {
     let notesSplice = notesID.splice(index, 1);
     pushNotesID.push(notesSplice); 
-    let notesTitle = titleId.splice[index, 1];
-    pushTitle.push(notesTitle);
     checkTrashAndArchiv();
     saveAndRenderNotes();
 }
